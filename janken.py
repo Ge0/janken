@@ -49,7 +49,7 @@ class JankenServerProtocol(asyncio.Protocol):
         except ValueError:
             self.transport.write("Invalid choice: {!r}\n".format(
                 data).encode())
-            self.send_your_move()
+            self._send_your_move()
         else:
             my_move = random.randint(1, 3)
             you_won = my_move == 1 and your_move == 3 or \
